@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Forgot Password')
 
 @section('content')
     <div class="content p-0">
@@ -16,40 +16,30 @@
             <div class="col-12 col-lg-6 d-flex vh-100 px-3 px-md-5 ">
                 <div class="card align-self-center border-light vw-100">
                     <div class="card-body p-3 p-md-5">
-                        <h1 class="mb-5">Welcome back!</h1>
+                        <h1>Forgot password</h1>
+                        <p class="mb-5">No worries, we'll send you reset instructions.</p>
 
                         @include('pages.partials.message')
 
-                        <form action="{{ route('auth.login') }}" method="POST">
+                        <form action="{{ route('password.email') }}" method="POST">
                             @csrf
 
                             <x-forms.input 
-                                name="username_or_email"
-                                label="Username or Email"
+                                type="email"
+                                name="email"
+                                label="Email"
                                 :message={{ $message }}
                                 required=true
                             />
-
-                            <x-forms.input 
-                                type="password"
-                                name="password"
-                                label="Password"
-                                :message={{ $message }}
-                                required=true
-                            />
-
-                            <div class="mb-1">
-                                <a href="{{ route('password.request') }}" class="text-danger">Forgot Password ?</a>
-                            </div>
-
-                            <div class="mb-3">
-                                Not a member ? <a href="{{ route('auth.register-page') }}" class="text-primary">Register now</a>
-                            </div>
 
                             <div class="d-flex">
-                                <button type="submit" class="btn btn-primary ms-auto">Login</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Send</button>
                             </div>
                         </form>
+                        
+                        <div class="mt-4 text-center">
+                            <a href="{{ route('auth.login-page') }}" class="fw-lighter">Back to log in</a>
+                        </div>
                     </div>
                 </div>
             </div>

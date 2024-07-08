@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Reset Password')
 
 @section('content')
     <div class="content p-0">
@@ -16,16 +16,18 @@
             <div class="col-12 col-lg-6 d-flex vh-100 px-3 px-md-5 ">
                 <div class="card align-self-center border-light vw-100">
                     <div class="card-body p-3 p-md-5">
-                        <h1 class="mb-5">Welcome back!</h1>
-
+                        <h1>Set your new password</h1>
+                        <p class="mb-5">Your new password should be different from passwords previously used.</p>
+                        
                         @include('pages.partials.message')
 
-                        <form action="{{ route('auth.login') }}" method="POST">
+                        <form action="{{ route('password.update') }}" method="POST">
                             @csrf
 
                             <x-forms.input 
-                                name="username_or_email"
-                                label="Username or Email"
+                                type="email"
+                                name="email"
+                                label="Email"
                                 :message={{ $message }}
                                 required=true
                             />
@@ -38,16 +40,18 @@
                                 required=true
                             />
 
-                            <div class="mb-1">
-                                <a href="{{ route('password.request') }}" class="text-danger">Forgot Password ?</a>
-                            </div>
+                            <x-forms.input 
+                                type="password"
+                                name="password_confirmation"
+                                label="Password Confirmation"
+                                :message={{ $message }}
+                                required=true
+                            />
 
-                            <div class="mb-3">
-                                Not a member ? <a href="{{ route('auth.register-page') }}" class="text-primary">Register now</a>
-                            </div>
+                            <input type="hidden" name="token" value="{{ $token }}">
 
                             <div class="d-flex">
-                                <button type="submit" class="btn btn-primary ms-auto">Login</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Reset password</button>
                             </div>
                         </form>
                     </div>
