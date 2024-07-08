@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,8 +18,46 @@ Route::middleware('guest')->group(function () {
         Route::post('register', 'register')->name('register');
         Route::post('authentication', 'login')->name('login');
     });
+
+    Route::prefix('forgot-password')
+        ->name('password.')
+        ->controller(ForgotPasswordController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('request');
+            Route::post('handler', 'handler')
+                ->name('email')
+                ->middleware('throttle:3,1440'); // 3 times in 1 day
+            Route::get('reset-password/{token}', 'resetPage')->name('reset');
+            Route::post('reset-password', 'resetHandler')->name('update');
+        });
 });
 
 Route::middleware('auth')->group(function () {
+    Route::prefix('email-verification')
+        ->name('verification.')
+        ->controller(EmailVerificationController::class)
+        ->group(function () {
+            Route::get('/', 'index')
+                ->name('notice')
+                ->middleware('email-unverified');
+            Route::get('handler/{id}/{hash}', 'handler')
+                ->name('verify')
+                ->middleware('signed');
+            Route::post('notification', 'resending')
+                ->name('send')
+                ->middleware('throttle:3,1440'); // 3 times in 1 day
+        });
+
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::name('account.')
+        ->controller(AccountController::class)
+        ->group(function () {
+            Route::get('overview', 'overview')->name('overview');
+            Route::get('profile', 'profile')->name('profile');
+            Route::patch('update-profile', 'updateProfile')->name('update-profile');
+            Route::patch('change-password', 'changePassword')->name('change-password');
+        });
 });

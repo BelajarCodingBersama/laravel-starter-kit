@@ -3,7 +3,7 @@
         <a href="#" class="sidebar-logo">
             <div class="d-flex justify-content-start align-items-center">
                 <img src="{{ url('template/assets/img/global/logo.svg') }}" alt="" />
-                <span>PondLink</span>
+                <span>Starter Kit</span>
             </div>
 
             <button id="toggle-navbar" onclick="toggleNavbar()">
@@ -16,16 +16,16 @@
         <x-sidebar-item 
             name="Overview" 
             className="overview" 
-            route="auth.overview" 
+            route="account.overview" 
             icon="template/assets/img/global/grid.svg" 
         />
 
-        {{-- <x-sidebar-item 
-            name="Account" 
-            className="account" 
-            route="auth.account" 
+        <x-sidebar-item 
+            name="Profile" 
+            className="profile" 
+            route="account.profile" 
             icon="template/assets/img/global/settings.svg" 
-        /> --}}
+        />
 
         {{-- @role('Developer')
             <x-sidebar-title title="Developer" />
@@ -114,18 +114,18 @@
                 route="daily-activity-logs.index" 
                 icon="template/assets/img/global/clock.svg" 
             />
-        @endrole
+        @endrole --}}
 
         <x-sidebar-title title="Others" />
 
-        @hasanyrole('Developer|Admin')
+        {{-- @hasanyrole('Developer|Admin')
             <x-sidebar-item 
                 name="User" 
                 className="user" 
                 route="users.index" 
                 icon="template/assets/img/global/users.svg" 
             />
-        @endhasanyrole --}}
+        @endhasanyrole  --}}
 
         <a href="#" class="sidebar-item" onclick="return confirm('Are you sure to logout?')">
             <img src="{{ url('template/assets/img/global/log-out.svg') }}" width="18" height="18" alt="icon" class="me-3" />
