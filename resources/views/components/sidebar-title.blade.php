@@ -1,0 +1,1 @@
+<h5 class="sidebar-title">{{ $title }}</h5>
