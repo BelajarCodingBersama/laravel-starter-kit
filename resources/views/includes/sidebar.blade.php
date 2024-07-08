@@ -2,7 +2,7 @@
     <aside class="sidebar">
         <a href="#" class="sidebar-logo">
             <div class="d-flex justify-content-start align-items-center">
-                <img src="{{ url('template/assets/img/global/logo.svg') }}" alt="" />
+                <img src="{{ url('template/favicon/favicon-32x32.png') }}" alt="" />
                 <span>Starter Kit</span>
             </div>
 

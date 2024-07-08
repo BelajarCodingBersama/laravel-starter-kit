@@ -5,6 +5,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        @include('includes.favicon')
+
         @stack('before-style')
         @include('includes.style')
         @stack('after-style')
