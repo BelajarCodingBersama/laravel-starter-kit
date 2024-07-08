@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="libraries/bootstrap-5/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="styles/css/main.css" />
+
+        <title>Admin Dashboard</title>
+    </head>
+    <body>
+        <div class="screen-cover d-none d-xl-none"></div>
+
+        <div class="row">
+            <div class="col-12 col-lg-3 col-navbar d-none d-xl-block">
+                <aside class="sidebar">
+                    <a href="#" class="sidebar-logo">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="./assets/img/global/logo.svg" alt="" />
+                            <span>Admin Panel</span>
+                        </div>
+
+                        <button id="toggle-navbar" onclick="toggleNavbar()">
+                            <img src="./assets/img/global/navbar-times.svg" alt="" />
+                        </button>
+                    </a>
+
+                    <h5 class="sidebar-title">Daily Use</h5>
+
+                    <a href="index.html" class="sidebar-item">
+                        <img src="./assets/img/global/grid.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Overview</span>
+                    </a>
+
+                    <!-- <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/users.svg" width="18" height="18" alt="icon" class="me-3" />
+
+                        <span>Employees</span>
+                    </a>
+
+                    <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/dollar-sign.svg" width="18" height="18" alt="icon" class="me-3" />
+
+                        <span>Payroll</span>
+                    </a> -->
+
+                    <h5 class="sidebar-title">Others</h5>
+
+                    <a href="form.html" class="sidebar-item">
+                        <img src="./assets/img/global/box.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Form</span>
+                    </a>
+
+                    <a href="table.html" class="sidebar-item">
+                        <img src="./assets/img/global/home.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Table</span>
+                    </a>
+
+                    <a href="details.html" class="sidebar-item active">
+                        <img src="./assets/img/global/gift.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Details</span>
+                    </a>
+
+                    <!-- <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/settings.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Settings</span>
+                    </a> -->
+
+                    <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/log-out.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Logout</span>
+                    </a>
+                </aside>
+            </div>
+
+            <div class="col-12 col-xl-9">
+                <div class="nav">
+                    <div class="d-flex justify-content-between align-items-center w-100 mb-3 mb-md-0">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <button id="toggle-navbar" onclick="toggleNavbar()">
+                                <img src="assets/img/global/burger.svg" class="mb-2" alt="icon" />
+                            </button>
+                            <h2 class="nav-title">
+                                <a href="table.html">Package</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between">
+                            <h2 class="content-title mb-4">Detail Package</h2>
+                            <div class="d-flex align-items-center">
+                                <a href="form.html" class="btn btn-sm btn-primary me-2">Edit</a>
+                                <form action="#" method="">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure to delete?')"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="statistics-card mb-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Nusa Penida</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 px-1">
+                                        <table class="table table-borderless table-responsive border-0 mb-0 mt-3">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="35%">
+                                                        <h6 class="card-subtitle text-muted">Location</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">
+                                                            : Republic of Indonesia Raya
+                                                        </h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Featured Event</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: Tari Kecak</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Language</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: Bahasa Indonesia</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Foods</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: Local Foods</h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12 col-md-6 px-1">
+                                        <table class="table table-borderless table-responsive border-0 mb-0 mt-3">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="35%">
+                                                        <h6 class="card-subtitle text-muted">Departure Date</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: 31 December 2022</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Duration</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: 4D 3N</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Type</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: Open Trip</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">Price</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="card-subtitle text-muted">: Rp 1.500.000</h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <h2 class="content-title mb-3">Description Package</h2>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="statistics-card mb-0">
+                                <div class="row">
+                                    <p>
+                                        Nusa Penida is an island southeast of Indonesia’s island Bali and a district of
+                                        Klungkung Regency that includes the neighbouring small island of Nusa Lembongan.
+                                        The Badung Strait separates the island and Bali. The interior of Nusa Penida is
+                                        hilly with a maximum altitude of 524 metres. It is drier than the nearby island
+                                        of Bali.
+                                    </p>
+                                    <p>
+                                        Bali and a district of Klungkung Regency that includes the neighbouring small
+                                        island of Nusa Lembongan. The Badung Strait separates the island and Bali.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3 mb-3 d-flex justify-content-between">
+                            <h2 class="content-title">Package Images</h2>
+                            <div class="d-flex align-items-center">
+                                <a href="form.html" class="btn btn-sm btn-primary">Upload Image</a>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="statistics-card mb-3">
+                                <div class="row justify-content-start">
+                                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                        <div class="card w-100">
+                                            <img
+                                                src="assets/img/employees/photo-1.png"
+                                                class="thumbnail-image rounded-top"
+                                                alt="package-image"
+                                            />
+                                            <div class="card-body p-0">
+                                                <form action="#" method="POST">
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-sm btn-danger w-100 rounded-0 rounded-bottom"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                        <div class="card w-100">
+                                            <img
+                                                src="assets/img/employees/photo-2.png"
+                                                class="thumbnail-image rounded-top"
+                                                alt="package-image"
+                                            />
+                                            <div class="card-body p-0">
+                                                <form action="#" method="POST">
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-sm btn-danger w-100 rounded-0 rounded-bottom"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                                        <div class="card w-100">
+                                            <img
+                                                src="assets/img/employees/photo-3.png"
+                                                class="thumbnail-image rounded-top"
+                                                alt="package-image"
+                                            />
+                                            <div class="card-body p-0">
+                                                <form action="#" method="POST">
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-sm btn-danger w-100 rounded-0 rounded-bottom"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="libraries/bootstrap-5/js/bootstrap.min.js"></script>
+        <script src="styles/js/main.js"></script>
+    </body>
+</html>

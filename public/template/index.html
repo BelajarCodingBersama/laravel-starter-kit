@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="libraries/bootstrap-5/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="styles/css/main.css" />
+
+        <title>Admin Dashboard</title>
+    </head>
+
+    <body>
+        <div class="screen-cover d-none d-xl-none"></div>
+
+        <div class="row">
+            <div class="col-12 col-lg-3 col-navbar d-none d-xl-block">
+                <aside class="sidebar">
+                    <a href="#" class="sidebar-logo">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="./assets/img/global/logo.svg" alt="" />
+                            <span>Admin Panel</span>
+                        </div>
+
+                        <button id="toggle-navbar" onclick="toggleNavbar()">
+                            <img src="./assets/img/global/navbar-times.svg" alt="" />
+                        </button>
+                    </a>
+
+                    <h5 class="sidebar-title">Daily Use</h5>
+
+                    <a href="index.html" class="sidebar-item active">
+                        <img src="./assets/img/global/grid.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Overview</span>
+                    </a>
+
+                    <!-- <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/users.svg" width="18" height="18" alt="icon" class="me-3" />
+
+                        <span>Employees</span>
+                    </a>
+
+                    <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/dollar-sign.svg" width="18" height="18" alt="icon" class="me-3" />
+
+                        <span>Payroll</span>
+                    </a> -->
+
+                    <h5 class="sidebar-title">Others</h5>
+
+                    <a href="form.html" class="sidebar-item">
+                        <img src="./assets/img/global/box.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Form</span>
+                    </a>
+
+                    <a href="table.html" class="sidebar-item">
+                        <img src="./assets/img/global/home.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Table</span>
+                    </a>
+
+                    <a href="details.html" class="sidebar-item">
+                        <img src="./assets/img/global/gift.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Details</span>
+                    </a>
+
+                    <!-- <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/settings.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Settings</span>
+                    </a> -->
+
+                    <a href="#" class="sidebar-item">
+                        <img src="./assets/img/global/log-out.svg" width="18" height="18" alt="icon" class="me-3" />
+                        <span>Logout</span>
+                    </a>
+                </aside>
+            </div>
+
+            <div class="col-12 col-xl-9">
+                <div class="nav">
+                    <div class="d-flex justify-content-between align-items-center w-100 mb-3 mb-md-0">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <button id="toggle-navbar" onclick="toggleNavbar()">
+                                <img src="./assets/img/global/burger.svg" class="mb-2" alt="" />
+                            </button>
+                            <h2 class="nav-title">Overview</h2>
+                        </div>
+                        <button class="btn-notif d-block d-md-none">
+                            <img src="./assets/img/global/bell.svg" alt="" />
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center nav-input-container">
+                        <div class="nav-input-group">
+                            <input type="text" class="nav-input" placeholder="Search people, team, project" />
+                            <button class="btn-nav-input"><img src="./assets/img/global/search.svg" alt="" /></button>
+                        </div>
+
+                        <button class="btn-notif d-none d-md-block">
+                            <img src="./assets/img/global/bell.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="content-title">Statistics</h2>
+                            <h5 class="content-desc mb-4">Your team powers</h5>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="statistics-card simple">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column justify-content-around align-items-start employee-stat"
+                                    >
+                                        <h5 class="content-desc">In Total</h5>
+
+                                        <h3 class="statistics-value">425,000</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="statistics-card simple">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column justify-content-around align-items-start employee-stat"
+                                    >
+                                        <h5 class="content-desc">Active</h5>
+
+                                        <h3 class="statistics-value">205,399</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="statistics-card simple">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column justify-content-around align-items-start employee-stat"
+                                    >
+                                        <h5 class="content-desc">Inactive</h5>
+
+                                        <h3 class="statistics-value">142,593</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 pb-5">
+                        <div class="col-12">
+                            <h2 class="content-title">People</h2>
+                            <h5 class="content-desc mb-4">The rangers</h5>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-6.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Andini Danna</h4>
+
+                                    <p class="employee-role">Product Designer</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-2.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Ferrari Three</h4>
+
+                                    <p class="employee-role">Quality Manager</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-4.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Sapiire Muke</h4>
+
+                                    <p class="employee-role">iOS Engineer</p>
+                                </div>
+
+                                <div
+                                    class="d-flex justify-content-center align-items-center employee-status unverified"
+                                >
+                                    <a href="#">Verify Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Mw Kemanna</h4>
+
+                                    <p class="employee-role">Website Developer</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-7.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Onna Appa</h4>
+
+                                    <p class="employee-role">Product Designer</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-3.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Hehe Nadiia</h4>
+
+                                    <p class="employee-role">Quality Manager</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-5.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Jamboel</h4>
+
+                                    <p class="employee-role">iOS Engineer</p>
+                                </div>
+
+                                <div
+                                    class="d-flex justify-content-center align-items-center employee-status unverified"
+                                >
+                                    <a href="#">Verify Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div
+                                class="d-flex flex-column justify-content-between align-items-center employee-card w-100"
+                            >
+                                <img src="./assets/img/employees/photo-1.png" alt="" class="employee-img" />
+
+                                <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+                                    <h4 class="employee-name">Eksis Melita</h4>
+
+                                    <p class="employee-role">Website Developer</p>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center employee-status verified">
+                                    <div class="employee-status-image">
+                                        <img src="./assets/img/employees/check.svg" alt="" />
+                                    </div>
+
+                                    <span>Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="libraries/bootstrap-5/js/bootstrap.min.js"></script>
+        <script src="styles/js/main.js"></script>
+    </body>
+</html>
