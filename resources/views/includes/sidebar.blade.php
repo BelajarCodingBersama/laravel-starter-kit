@@ -118,14 +118,14 @@
 
         <x-sidebar-title title="Others" />
 
-        {{-- @hasanyrole('Developer|Admin')
+        {{-- @hasanyrole('Developer|Admin') --}}
             <x-sidebar-item 
                 name="User" 
                 className="user" 
                 route="users.index" 
                 icon="template/assets/img/global/users.svg" 
             />
-        @endhasanyrole  --}}
+        {{-- @endhasanyrole  --}}
 
         <a href="#" class="sidebar-item" onclick="return confirm('Are you sure to logout?')">
             <img src="{{ url('template/assets/img/global/log-out.svg') }}" width="18" height="18" alt="icon" class="me-3" />

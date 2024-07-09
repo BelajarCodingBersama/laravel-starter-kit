@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -59,5 +60,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('profile', 'profile')->name('profile');
             Route::patch('update-profile', 'updateProfile')->name('update-profile');
             Route::patch('change-password', 'changePassword')->name('change-password');
+        });
+
+    Route::prefix('users')
+        ->name('users.')
+        ->controller(UserController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+
+            // Route::get('{user}/add-roles', 'addRolesPage')->name('add-roles-page');
+            // Route::post('{user}/add-roles', 'addRoles')->name('add-roles');
         });
 });
