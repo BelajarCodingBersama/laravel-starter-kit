@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Developer\RoleController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -68,7 +70,31 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->group(function () {
             Route::get('/', 'index')->name('index');
 
-            // Route::get('{user}/add-roles', 'addRolesPage')->name('add-roles-page');
-            // Route::post('{user}/add-roles', 'addRoles')->name('add-roles');
+            Route::get('{user}/add-roles', 'addRolesPage')->name('add-roles-page');
+            Route::post('{user}/add-roles', 'addRoles')->name('add-roles');
+        });
+
+    Route::prefix('roles')
+        ->name('roles.')
+        ->controller(RoleController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+
+            Route::get('{role}/add-permissions', 'addPermissionsPage')->name('add-permissions-page');
+            Route::post('{role}/add-permissions', 'addPermissions')->name('add-permissions');
+
+            Route::delete('{role}/delete', 'destroy')->name('delete');
+        });
+
+    Route::prefix('permissions')
+        ->name('permissions.')
+        ->controller(PermissionController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::delete('{permission}/delete', 'destroy')->name('delete');
         });
 });

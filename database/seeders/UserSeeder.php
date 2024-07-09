@@ -15,6 +15,13 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
+                'name' => 'Developer',
+                'username' => 'developer',
+                'email' => 'developer@mail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('secret')
+            ],
+            [
                 'name' => 'Admin',
                 'username' => 'admin',
                 'email' => 'admin@mail.com',
@@ -32,5 +39,14 @@ class UserSeeder extends Seeder
         foreach ($users as $user) {
             User::create($user);
         }
+
+        $developer = User::find(1);
+        $developer->assignRole(['developer','admin','customer']);
+
+        $admin = User::find(2);
+        $admin->assignRole(['admin']);
+
+        $customer = User::find(3);
+        $customer->assignRole(['customer']);
     }
 }

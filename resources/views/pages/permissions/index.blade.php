@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'User')
-@section('user', 'active')
+@section('title', 'Permission')
+@section('permission', 'active')
 
 @section('content')
     <div class="col-12 col-xl-9">
-        <x-navbar name="User" route="users.index" />
+        <x-navbar name="Permission" route="permissions.index" />
 
         <div class="content">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between">
-                    <h2 class="content-title mb-4">List Users</h2>
+                    <h2 class="content-title mb-4">List Permissions</h2>
                     <div class="btn mb-2 mb-md-0">
-                        {{-- <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary"> Add new user </a> --}}
+                        <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-primary"> Add new permission </a>
                     </div>
                 </div>
 
@@ -44,12 +44,12 @@
                 <div class="col-12">
                     <div class="statistics-card">
                         <x-table 
-                            :headers="['Name','Username','Email','Role Names']"
-                            :items="$users"
-                            :cells="['name','username','email','role_names']"
-                            collspan="5"
-                            :actions="['User Add Roles']"
-                            routeUserAddRoles="users.add-roles-page"
+                            :headers="['Name']"
+                            :items="$permissions"
+                            :cells="['name']"
+                            collspan="2"
+                            :actions="['Delete']"
+                            routeDelete="permissions.delete"
                             pagination=true
                         />
                     </div>
